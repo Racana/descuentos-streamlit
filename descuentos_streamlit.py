@@ -7,23 +7,20 @@ import boto3
 import os
 from io import StringIO
 
+st.sidebar.title('Descuentos disponibles en Buenos Aires')
+st.sidebar.markdown(
+    """
+Datos obtenidos desde los sitios webs de Movistar, San Lorenzo y Swiss Medical Group mediante web scrapping para uso educacional.
+Los datos muestran los distintos descuentos ofrecidos al 25 de Abril del 2020
+    """
+)
+
 @st.cache
 def call_data():
-    aws_id = os.environ.get('AWS_ID')
-    aws_secret = os.environ.get('AWS_SK')
-    client = boto3.client('s3', aws_access_key_id=aws_id,
-            aws_secret_access_key=aws_secret)
-    bucket_name = 'descuentos-argentina-bucket'
-    object_key = 'df.csv'
-    csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
-    body = csv_obj['Body']
-    csv_string = body.read().decode('utf-8')
-    data = pd.read_csv(StringIO(csv_string), index_col=0)
-    return data
-
+    df = pd.read_csv('https://storage.googleapis.com/descuentos-streamlit/df.csv')
+    return df
+    
 data = call_data()
-
-st.title('Descuentos disponibles en Buenos Aires')
 
 option_site = st.multiselect(
     'Pagina',
@@ -32,13 +29,17 @@ option_site = st.multiselect(
 
 option_cat = st.multiselect(
     'Categoria',
-    data['Categoria'].unique()
+    data['Categoria'].sort_values().unique()
 )
 
-filtered_data = data[(data['Pagina'].isin(option_site)) &
-                (data['Categoria'].isin(option_cat))]
+if not option_cat:
+    filtered_data = data[
+        data['Pagina'].isin(option_site)
+        ]
+else:
+    filtered_data = data[
+        (data['Pagina'].isin(option_site)) & 
+        (data['Categoria'].isin(option_cat))
+        ]
+
 st.write(filtered_data[['Titulo', 'Descuento', 'Pagina']].to_html(escape=False, index=False), unsafe_allow_html=True)
-
-
-#& (data['Categoria'] == option_cat)
-#st.subheader('Map of all pickups at %s:00' % hour_to_filter)
