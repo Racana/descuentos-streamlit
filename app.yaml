@@ -1,12 +1,6 @@
 runtime: custom
 env: flex
-service: streamlit
 
-network:
-  instance_tag: "streamlitapp"
-  name: "data"
-
-resources:
-  cpu: 2
-  memory_gb: 4
-  disk_size_gb: 10
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 7   

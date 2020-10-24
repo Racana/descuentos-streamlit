@@ -11,4 +11,4 @@ EXPOSE 8080
 COPY . .
 
 
-CMD streamlit run --server.port 8080 --server.enableCORS flase descuentos_streamlit.py
+CMD streamlit run --server.port 8080 --server.enableCORS false descuentos_streamlit.py
