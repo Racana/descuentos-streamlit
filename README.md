@@ -1,6 +1,7 @@
 # Project Title
 [ENG]
-ModoDescuento is a platform that centralizes discounts offered by various companies as telephone services, banks, newspapers and magazines, so that users can quickly and intuitively access the discounts they have available. ModoDescuento performs WebsCrapping from these sites, and consolidates the information in unique categories, that describe the discount provided and a link to access to them; Then this information is implemented in an Streamlit webapp, which is then uploaded through Heroku.
+ModoDescuento is a platform that centralizes discounts offered by various companies as telephone services, banks, newspapers and magazines, so that users can quickly and intuitively access the discounts they have available. ModoDescuento performs WebsCrapping from these sites, and consolidates the information in unique categories, that describe the discount provided and a link to access to them; Then this information is implemented in an Streamlit webapp, which is then uploaded through Heroku.  \n
+
 [SPA]
 ModoDescuento es una plataforma que centraliza los descuentos ofrecidos por distintas compañias como servicios de telefonía, bancos, diarios y revistas, para que los usuarios puedan acceder de manera rápida e intuitiva a los descuentos que tienen disponibles.
 ModoDescuento realiza un webscrapping de todos estos sitios, y los consolida en categorias únicas, que describen el descuento ofrecido y un link para acceder a ellos; Luego esta información es implementada en una applicación en Streamlit que luego es compartida a través de Heroku.
