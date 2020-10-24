@@ -1,6 +1,6 @@
 # Project Title
 ModoDescuento es una plataforma que centraliza los descuentos ofrecidos por distintas compañias como servicios de telefonía, bancos, diarios y revistas, para que los usuarios puedan acceder de manera rápida e intuitiva a los descuentos que tienen disponibles.
-ModoDescuento realiza un webscrapping de todos estos sitios, y los consolida en categorias únicas, que describen el descuento ofrecido y un link para acceder a ellos; Luego esta información es implementada en una applicación en Streamlit que luego es compartida a través de Heroku.
+ModoDescuento realiza un webscrapping de todos estos sitios, y los consolida en categorias únicas, que describen el descuento ofrecido y un link para acceder a ellos; Luego esta información es implementada en una applicación en Streamlit que luego es compartida a través de GCP - App Engine.
 
 https://grandt-287211.uc.r.appspot.com/
 
